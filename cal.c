@@ -62,51 +62,50 @@ int sep1752[MAXDAYS] = {
     SPACE,
     SPACE,
 },
-    j_sep1752[MAXDAYS] = {
-        SPACE,
-        SPACE,
-        245,
-        246,
-        258,
-        259,
-        260,
-        261,
-        262,
-        263,
-        264,
-        265,
-        266,
-        267,
-        268,
-        269,
-        270,
-        271,
-        272,
-        273,
-        274,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
-        SPACE,
+j_sep1752[MAXDAYS] = {
+    SPACE,
+    SPACE,
+    245,
+    246,
+    258,
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265,
+    266,
+    267,
+    268,
+    269,
+    270,
+    271,
+    272,
+    273,
+    274,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
+    SPACE,
 };
-
 int empty[MAXDAYS];
 
 char *month_names[12] = {
@@ -321,21 +320,16 @@ void day_array(int month, int year, int *days)
 
   if (month == 9 && year == 1752)
   {
-    // bcopy(julian ? j_sep1752 : sep1752, days, MAXDAYS * sizeof(int));
-
     for (int i = 0; i < MAXDAYS; i++)
     {
-      if (julian)
-        j_sep1752[i] = days[i];
-      else
-        sep1752[i] = days[i];
+      if (julian) j_sep1752[i] = days[i];
+      else sep1752[i] = days[i];
     }
     return;
   }
 
   for (int i = 0; i < MAXDAYS; i++)
   {
-    // printf(1, "day year = %d\n", days[i]);
     empty[i] = days[i];
   }
 
@@ -627,7 +621,7 @@ int main(int argc, char **argv)
   printf(1, "*argv = %s\targc = %d\t*startArgv = %s\tnonOptCnt = %d\n\n", *argv, argc, *startArgv, nonOptCnt);
 
   month = 0;
-  switch (nonOptCnt) //nonOptCnt
+  switch (nonOptCnt)
   {
   case 2:
     printf(1, "*startArgv  = %s\n", *startArgv);
@@ -636,7 +630,6 @@ int main(int argc, char **argv)
       printf(2, "cal: illegal month value: use 0-12\n");
       exit();
     }
-    /* FALLTHROUGH */
   case 1:
     if ((year = atoi(*startArgv)) <= 0 || year > 9999)
     {
